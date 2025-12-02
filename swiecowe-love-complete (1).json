@@ -1,0 +1,125 @@
+{
+  "siteData": {
+    "hero": {
+      "title": "Świecowe Love",
+      "desc1": "Ręcznie robimy kwiaty z wosku oraz świece, również eleganckie boxy, pachnące świece i bukiety, które żyją wiecznie.",
+      "desc2": "Piękne, dopracowane że robią efekt WOW, sama magia. 🕯️✨",
+      "desc3": "Świecowe perełki od stroików urodzinowych do dekorów."
+    },
+    "about": {
+      "mainTitle": "Nasza Historia",
+      "title": "Tworzone z Pasją i Miłością",
+      "description": "W Świecowe Love każdy produkt jest tworzony ręcznie z najwyższą starannością. Nasze kwiaty z wosku i świece to nie tylko dekoracje – to prawdziwe dzieła sztuki, które przetrwają próbę czasu.\n\nOferujemy eleganckie boxy, pachnące świece oraz bukiety, które nigdy nie wiedną. Każdy element jest dopracowany w najdrobniejszych szczegółach, aby wywołać efekt WOW.\n\nOd stroików urodzinowych po wyrafinowane dekoracje – nasze świecowe perełki dodadzą magii każdej chwili. Zamów już teraz i przekonaj się sam!",
+      "image": "kwiaty.png",
+      "imageFit": "contain",
+      "imagePosition": "left center"
+    },
+    "gallery": {
+      "title": "Nasza Galeria",
+      "images": [
+        {
+          "src": "harykwiatk.png",
+          "alt": "cos",
+          "fit": "scale-down",
+          "position": "center center"
+        },
+        {
+          "src": "dekoracje.png",
+          "alt": "dw",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "mispudleko.png",
+          "alt": "dw",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "pudl2.png",
+          "alt": "dw",
+          "fit": "cover",
+          "position": "center center"
+        }
+      ]
+    },
+    "products": {
+      "title": "Nasze Produkty",
+      "description": "Odkryj naszą kolekcję ręcznie robionych kwiatów z wosku i świec"
+    },
+    "slider": {
+      "interval": 10000,
+      "images": [
+        {
+          "src": "misiek.png",
+          "alt": "Miś z różami",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "dekoracje.png",
+          "alt": "Dekoracje",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "rower.png",
+          "alt": "Rowerek",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "pudlo.png",
+          "alt": "Eleganckie pudło",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "kochanymrodzicompan.png",
+          "alt": "DW",
+          "fit": "cover",
+          "position": "center center"
+        }
+      ]
+    }
+  },
+  "posts": [],
+  "products": [
+    {
+      "id": "1",
+      "name": "Bukiet Miś z Różami",
+      "description": "Uroczy miś z woskowych róż w eleganckim pudełku",
+      "image": "misiek.png"
+    },
+    {
+      "id": "2",
+      "name": "Stroik Urodzinowy",
+      "description": "Piękny stroik urodzinowy z kwiatami z wosku",
+      "image": "dekoracje.png"
+    },
+    {
+      "id": "3",
+      "name": "Rowerek z Kwiatami",
+      "description": "Dekoracyjny rowerek wypełniony woskowymi kwiatami",
+      "image": "rower.png"
+    },
+    {
+      "id": "4",
+      "name": "Elegancki Box",
+      "description": "Luksusowy box z pachnącymi świecami",
+      "image": "pudlo.png"
+    },
+    {
+      "id": "5",
+      "name": "Kwiaty w Pudełku",
+      "description": "Wieczne kwiaty z wosku w elegankim opakowaniu",
+      "image": "kwiaty.png"
+    },
+    {
+      "id": "6",
+      "name": "Świąteczna Choinka",
+      "description": "Dekoracyjna choinka z woskowych ozdób",
+      "image": "malahoinka.png"
+    }
+  ]
+}

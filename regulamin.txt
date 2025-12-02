@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulamin Sklepu - Świecowe Love</title>
+    <link rel="icon" type="image/x-icon" href="image/Logo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .toc-link:hover { color: #f87171; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-rose-400 text-white py-6">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-3xl font-bold">Regulamin Sklepu Internetowego</h1>
+            <p class="mt-2">Świecowe Love - Ręcznie robione kwiaty z wosku i świece</p>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <a href="swiecowe-love.html" class="text-rose-400 hover:text-rose-500 font-semibold">← Powrót do strony głównej</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold mb-6">Spis Treści:</h2>
+            <ol class="space-y-2 mb-8 list-decimal list-inside">
+                <li><a href="#postanowienia" class="toc-link text-blue-600">Postanowienia Ogólne</a></li>
+                <li><a href="#uslugi" class="toc-link text-blue-600">Usługi Elektroniczne w Sklepie Internetowym</a></li>
+                <li><a href="#warunki" class="toc-link text-blue-600">Warunki Zawierania Umowy Sprzedaży</a></li>
+                <li><a href="#platnosci" class="toc-link text-blue-600">Sposoby i Terminy Płatności za Produkt</a></li>
+                <li><a href="#dostawa" class="toc-link text-blue-600">Koszt, Sposoby i Termin Dostawy Produktu</a></li>
+                <li><a href="#reklamacje" class="toc-link text-blue-600">Procedura Rozpatrywania Reklamacji</a></li>
+                <li><a href="#pozasadowe" class="toc-link text-blue-600">Pozasądowe Sposoby Rozpatrywania Reklamacji</a></li>
+                <li><a href="#odstapienie" class="toc-link text-blue-600">Prawo Odstąpienia od Umowy</a></li>
+                <li><a href="#przedsiebiorcy" class="toc-link text-blue-600">Postanowienia Dotyczące Przedsiębiorców</a></li>
+                <li><a href="#koncowe" class="toc-link text-blue-600">Postanowienia Końcowe</a></li>
+            </ol>
+
+            <section id="postanowienia" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">1. Postanowienia Ogólne</h2>
+                <p class="mb-4"><strong>1.1.</strong> Sklep Internetowy <strong>Świecowe Love</strong> dostępny pod adresem internetowym swiecowelove.pl oferuje ręcznie wykonane kwiaty z wosku, świece, eleganckie boxy oraz pachnące bukiety.</p>
+                
+                <p class="mb-4"><strong>1.2.</strong> Niniejszy Regulamin skierowany jest zarówno do konsumentów, jak i do przedsiębiorców korzystających ze Sklepu Internetowego.</p>
+                
+                <p class="mb-4"><strong>1.3.</strong> Kontakt z Świecowe Love:</p>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li>Email: swiecowelove88@gmail.com</li>
+                    <li>Telefon: +48 794 309 165</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold mt-6 mb-3">Definicje:</h3>
+                <ul class="space-y-2">
+                    <li><strong>DZIEŃ ROBOCZY</strong> – jeden dzień od poniedziałku do piątku z wyłączeniem dni ustawowo wolnych od pracy.</li>
+                    <li><strong>KLIENT</strong> – osoba fizyczna, prawna lub jednostka organizacyjna dokonująca zakupu produktów.</li>
+                    <li><strong>PRODUKT</strong> – ręcznie wykonane kwiaty z wosku, świece, boxy lub bukiety oferowane w sklepie.</li>
+                    <li><strong>SKLEP INTERNETOWY</strong> – sklep Świecowe Love dostępny online.</li>
+                    <li><strong>UMOWA SPRZEDAŻY</strong> – umowa sprzedaży Produktu zawierana między Klientem a Sprzedawcą.</li>
+                </ul>
+            </section>
+
+            <section id="uslugi" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">2. Usługi Elektroniczne w Sklepie Internetowym</h2>
+                <p class="mb-4"><strong>2.1.</strong> W Sklepie Internetowym dostępny jest Formularz Zamówienia umożliwiający złożenie zamówienia.</p>
+                
+                <p class="mb-4"><strong>2.2.</strong> Wymagania techniczne:</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Urządzenie z dostępem do Internetu</li>
+                    <li>Aktualna przeglądarka internetowa (Chrome, Firefox, Safari, Edge)</li>
+                    <li>Włączona obsługa JavaScript i Cookies</li>
+                </ul>
+            </section>
+
+            <section id="warunki" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">3. Warunki Zawierania Umowy Sprzedaży</h2>
+                <p class="mb-4"><strong>3.1.</strong> Wszystkie produkty Świecowe Love są ręcznie wykonywane i przeznaczone do użytku osobistego.</p>
+                
+                <p class="mb-4"><strong>3.2.</strong> Ceny produktów podane są w złotych polskich (PLN) i zawierają podatek VAT.</p>
+                
+                <p class="mb-4"><strong>3.3.</strong> Zawarcie umowy następuje po złożeniu zamówienia przez Klienta i jego potwierdzeniu przez Sprzedawcę drogą elektroniczną.</p>
+            </section>
+
+            <section id="platnosci" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">4. Sposoby i Terminy Płatności za Produkt</h2>
+                <p class="mb-4"><strong>4.1.</strong> Dostępne formy płatności:</p>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li>Przelew bankowy tradycyjny</li>
+                    <li>Płatności elektroniczne (PayU, Przelewy24)</li>
+                    <li>Płatność przy odbiorze (za pobraniem)</li>
+                </ul>
+                
+                <p class="mb-4"><strong>4.2.</strong> Termin płatności wynosi 1 dzień kalendarzowy od dnia zawarcia umowy dla płatności elektronicznych.</p>
+            </section>
+
+            <section id="dostawa" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">5. Koszt, Sposoby i Termin Dostawy Produktu</h2>
+                <p class="mb-4"><strong>5.1.</strong> Dostawa dostępna jest na terytorium Polski.</p>
+                
+                <p class="mb-4"><strong>5.2.</strong> Sposoby dostawy:</p>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li>Kurier (InPost, DPD, DHL) - koszt według cennika</li>
+                    <li>Paczkomaty InPost - koszt według cennika</li>
+                    <li>Odbiór osobisty (po uzgodnieniu) - bezpłatnie</li>
+                </ul>
+                
+                <p class="mb-4"><strong>5.3.</strong> Termin realizacji zamówienia wynosi do 7 dni roboczych od momentu zaksięgowania płatności.</p>
+            </section>
+
+            <section id="reklamacje" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">6. Procedura Rozpatrywania Reklamacji</h2>
+                <p class="mb-4"><strong>6.1.</strong> Reklamację można złożyć:</p>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li>Mailowo na adres: kontakt@swiecowelove.pl</li>
+                    <li>Telefonicznie: +48 123 456 789</li>
+                </ul>
+                
+                <p class="mb-4"><strong>6.2.</strong> Reklamacja powinna zawierać:</p>
+                <ul class="list-disc list-inside ml-4 mb-4">
+                    <li>Opis problemu</li>
+                    <li>Numer zamówienia</li>
+                    <li>Zdjęcie produktu (jeśli dotyczy wady fizycznej)</li>
+                    <li>Dane kontaktowe</li>
+                </ul>
+                
+                <p class="mb-4"><strong>6.3.</strong> Reklamacje rozpatrywane są w terminie do 14 dni kalendarzowych.</p>
+            </section>
+
+            <section id="pozasadowe" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">7. Pozasądowe Sposoby Rozpatrywania Reklamacji</h2>
+                <p class="mb-4"><strong>7.1.</strong> Konsument ma prawo skorzystać z pozasądowych sposobów rozwiązywania sporów, w tym:</p>
+                <ul class="list-disc list-inside ml-4">
+                    <li>Stały polubowny sąd konsumencki</li>
+                    <li>Wojewódzki Inspektor Inspekcji Handlowej</li>
+                    <li>Rzecznik Konsumentów</li>
+                </ul>
+            </section>
+
+            <section id="odstapienie" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">8. Prawo Odstąpienia od Umowy</h2>
+                <p class="mb-4"><strong>8.1.</strong> Konsument ma prawo odstąpić od umowy bez podania przyczyny w terminie <strong>14 dni kalendarzowych</strong>.</p>
+                
+                <p class="mb-4"><strong>8.2.</strong> Termin liczy się od dnia otrzymania produktu.</p>
+                
+                <p class="mb-4"><strong>8.3.</strong> Produkt należy zwrócić w stanie nienaruszonym.</p>
+                
+                <p class="mb-4"><strong>8.4.</strong> <strong>WAŻNE:</strong> Ze względu na charakter produktów (ręcznie wykonane, personalizowane), prawo odstąpienia nie przysługuje w przypadku produktów wykonanych na specjalne zamówienie Klienta.</p>
+            </section>
+
+            <section id="przedsiebiorcy" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">9. Postanowienia Dotyczące Przedsiębiorców</h2>
+                <p class="mb-4"><strong>9.1.</strong> Postanowienia dotyczące prawa odstąpienia od umowy nie dotyczą przedsiębiorców.</p>
+                
+                <p class="mb-4"><strong>9.2.</strong> Spory rozstrzygane są przez sąd właściwy dla siedziby sprzedawcy.</p>
+            </section>
+
+            <section id="koncowe" class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">10. Postanowienia Końcowe</h2>
+                <p class="mb-4"><strong>10.1.</strong> Umowy zawierane są w języku polskim.</p>
+                
+                <p class="mb-4"><strong>10.2.</strong> Świecowe Love zastrzega sobie prawo do zmiany Regulaminu. Zmiany nie wpływają na zamówienia złożone przed ich wprowadzeniem.</p>
+                
+                <p class="mb-4"><strong>10.3.</strong> W sprawach nieuregulowanych w Regulaminie zastosowanie mają przepisy Kodeksu Cywilnego oraz innych właściwych ustaw.</p>
+            </section>
+
+            <div class="mt-12 p-6 bg-rose-50 rounded-lg">
+                <p class="text-center text-gray-700">
+                    <strong>Regulamin obowiązuje od: Grudzień 2025</strong><br>
+                    Świecowe Love - Ręcznie robione kwiaty z wosku i świece
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p>&copy; 2025 Świecowe Love. Wszystkie prawa zastrzeżone.</p>
+            <p class="mt-2"><a href="swiecowe-love.html" class="text-rose-400 hover:text-rose-300">Powrót do strony głównej</a></p>
+        </div>
+    </footer>
+</body>
+</html>
