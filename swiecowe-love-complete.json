@@ -1,0 +1,308 @@
+{
+  "siteData": {
+    "hero": {
+      "title": "Świecowe Love",
+      "desc1": "Ręcznie robimy kwiaty z wosku oraz świece, również eleganckie boxy, pachnące świece i bukiety, które żyją wiecznie.",
+      "desc2": "Piękne, dopracowane że robią efekt WOW, sama magia. 🕯️✨",
+      "desc3": "Świecowe perełki od stroików urodzinowych do dekorów."
+    },
+    "about": {
+      "mainTitle": "Nasza Historia",
+      "title": "Tworzone z Pasją i Miłością",
+      "description": "W Świecowe Love każdy produkt jest tworzony ręcznie z najwyższą starannością. Nasze kwiaty z wosku i świece to nie tylko dekoracje – to prawdziwe dzieła sztuki, które przetrwają próbę czasu.\n\nOferujemy eleganckie boxy, pachnące świece oraz bukiety, które nigdy nie wiedną. Każdy element jest dopracowany w najdrobniejszych szczegółach, aby wywołać efekt WOW.\n\nOd stroików urodzinowych po wyrafinowane dekoracje – nasze świecowe perełki dodadzą magii każdej chwili. Zamów już teraz i przekonaj się sam!",
+      "image": "rowermamie.png",
+      "imageFit": "cover",
+      "imagePosition": "center center"
+    },
+    "gallery": {
+      "title": "Nasza Galeria",
+      "images": [
+        {
+          "src": "pojazd.png",
+          "alt": "Nasze produkty",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "pudlo.png",
+          "alt": "Nasze produkty",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "kwiaty.png",
+          "alt": "Nasze produkty",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "hoinka cos.png",
+          "alt": "Nasze produkty",
+          "fit": "cover",
+          "position": "center center"
+        }
+      ]
+    },
+    "products": {
+      "title": "Nasze Produkty",
+      "description": "Odkryj naszą kolekcję ręcznie robionych kwiatów z wosku i świec"
+    },
+    "slider": {
+      "interval": 10000,
+      "images": [
+        {
+          "src": "drewno.png",
+          "alt": "Kochanym rodzicom",
+          "fit": "contain",
+          "position": "center center"
+        },
+        {
+          "src": "malahoinka.png",
+          "alt": "DWD",
+          "fit": "cover",
+          "position": "center center"
+        },
+        {
+          "src": "rowermamie.png",
+          "alt": "Zdjęcie slidera",
+          "fit": "contain",
+          "position": "center center"
+        },
+        {
+          "src": "redkoreck.png",
+          "alt": "Zdjęcie slidera",
+          "fit": "contain",
+          "position": "center center"
+        },
+        {
+          "src": "sammis.png",
+          "alt": "Zdjęcie slidera",
+          "fit": "contain",
+          "position": "center center"
+        },
+        {
+          "src": "rower.png",
+          "alt": "Zdjęcie slidera",
+          "fit": "contain",
+          "position": "center center"
+        }
+      ]
+    }
+  },
+  "products": [
+
+    {
+      "id": "product_2",
+      "name": "Zestaw Dekoracyjny",
+      "description": "Komplet wyjątkowych ozdób woskowych, które wprowadzą przytulną atmosferę do każdego wnętrza.",
+      "image": "dekoracje.png"
+    },
+    {
+      "id": "product_3",
+      "name": "Magiczna Kompozycja Blue",
+      "description": "Niebieska aranżacja kwiatowa w oryginalnej osłonce inspirowanej stylem Harry'ego Pottera.",
+      "image": "haryblue.png"
+    },
+    {
+      "id": "product_4",
+      "name": "Elegancki Gift Box",
+      "description": "Gustowne pudełko prezentowe wypełnione po brzegi pachnącymi, woskowymi skarbami.",
+      "image": "pudlo.png"
+    },
+    {
+      "id": "product_5",
+      "name": "Wieczny Bukiet",
+      "description": "Ręcznie formowane kwiaty z wosku, które zachwycają realizmem i nigdy nie zwiędną.",
+      "image": "kwiaty.png"
+    },
+
+    {
+      "id": "product_7",
+      "name": "Duet Świąteczny",
+      "description": "Zestaw dwóch uroczych stroików w torebkach, idealny na prezent dla bliskich.",
+      "image": "2stroiki.png"
+    },
+    {
+      "id": "product_8",
+      "name": "Słodki Box",
+      "description": "Kompozycja zapachowa w formie boxu, która kusi słodkim wyglądem i aromatem.",
+      "image": "BOXLOSDKI.PNG"
+    },
+    {
+      "id": "product_9",
+      "name": "Dla Kochanej Babci",
+      "description": "Wzruszająca koperta 3D z kwiatami i dedykacją, stworzona specjalnie dla Babci.",
+      "image": "babci.png"
+    },
+    {
+      "id": "product_10",
+      "name": "Box z Misiem",
+      "description": "Uroczy zestaw prezentowy zawierający świece oraz słodkiego, woskowego misia.",
+      "image": "boxsiwcei mis.png"
+    },
+    {
+      "id": "product_11",
+      "name": "Zimowy Box",
+      "description": "Świąteczne pudełko pełne zimowych akcentów, choinek i mroźnych detali.",
+      "image": "boxswiatczeny.png"
+    },
+    {
+      "id": "product_12",
+      "name": "Nasza Specjalność",
+      "description": "Autorska kompozycja w eleganckim pudełku z rączką, dopracowana w każdym calu.",
+      "image": "boxunas.png"
+    },
+    {
+      "id": "product_13",
+      "name": "Niebieska Koperta Miłości",
+      "description": "Elegancki box w kształcie koperty z błękitnymi kwiatami, misiem i topperem 'Kocham Cię'.",
+      "image": "cejekd.png"
+    },
+    {
+      "id": "product_14",
+      "name": "Woskowa Ozdoba",
+      "description": "Nowoczesna i stylowa dekoracja z wosku, pasująca do minimalistycznych wnętrz.",
+      "image": "cos.png"
+    },
+
+    {
+      "id": "product_16",
+      "name": "Urodzinowa Elegancja",
+      "description": "Stylowy box urodzinowy w kolorach czerni i beżu, z misiem i topperem 'Wszystkiego Najlepszego'.",
+      "image": "emmeme.png"
+    },
+
+    {
+      "id": "product_18",
+      "name": "Magiczny Stroik",
+      "description": "Niezwykły stroik w osłonce przypominającej głowę w okularach – dla fanów magii.",
+      "image": "harykwiatk.png"
+    },
+    {
+      "id": "product_19",
+      "name": "Zimowa Opowieść",
+      "description": "Klimatyczna dekoracja z choinką, suszonymi owocami i pachnącym igliwiem.",
+      "image": "hoinka cos.png"
+    },
+    {
+      "id": "product_20",
+      "name": "Biała Choinka",
+      "description": "Elegancka, biała choinka woskowa zapakowana w estetyczne, przezroczyste pudełko.",
+      "image": "hoinkabiala.png"
+    },
+    {
+      "id": "product_21",
+      "name": "Figurka Religijna",
+      "description": "Starannie wykonana świeca w kształcie Jezusa, doskonała na prezent religijny.",
+      "image": "jezus.png"
+    },
+    {
+      "id": "product_22",
+      "name": "Stroik Harry Blue",
+      "description": "Oryginalna kompozycja woskowych kwiatów w ceramicznej osłonce z okularami.",
+      "image": "kccb.png"
+    },
+    {
+      "id": "product_23",
+      "name": "Dla Mamy",
+      "description": "Dedykowany prezent 'Kochanej Mamie' w formie bogatego bukietu woskowych kwiatów.",
+      "image": "kochanejmamie.png"
+    },
+    {
+      "id": "product_24",
+      "name": "Dla Żony",
+      "description": "Romantyczny upominek dla żony w różowej tonacji – kwiaty, które trwają wiecznie.",
+      "image": "kochanejzonie.png"
+    },
+    {
+      "id": "product_26",
+      "name": "Matka Boska",
+      "description": "Piękna świeca w kształcie Matki Boskiej, wykonana z dbałością o detale.",
+      "image": "matkaboska.png"
+    },
+    {
+      "id": "product_27",
+      "name": "Matka Boska (Wzór 2)",
+      "description": "Alternatywny, subtelny wzór figurki woskowej o tematyce sakralnej.",
+      "image": "matkaboska2.png"
+    },
+    {
+      "id": "product_28",
+      "name": "Box Personalizowany",
+      "description": "Unikalny box z dedykacją, wypełniony ręcznie robionymi elementami z wosku.",
+      "image": "mememox.png"
+    },
+    {
+      "id": "product_29",
+      "name": "Black & White Box",
+      "description": "Stylowy, czarny box z kontrastującym białym misiem i eleganckimi dodatkami.",
+      "image": "misczarnepudlo.png"
+    },
+    {
+      "id": "product_30",
+      "name": "Tajemniczy Box",
+      "description": "Kreatywny zestaw zapachowy, który zaskakuje formą i intensywnym aromatem.",
+      "image": "mjsbox.png"
+    },
+    {
+      "id": "product_33",
+      "name": "Kwiatowy Rowerek",
+      "description": "Biały rowerek w stylu retro, wiozący kosz pełen woskowych kwiatów i misia.",
+      "image": "pojazd.png"
+    },
+    {
+      "id": "product_40",
+      "name": "Rowerek dla Mamy",
+      "description": "Specjalna wersja rowerka z topperem dedykowanym ukochanej Mamie.",
+      "image": "rowermamie.png"
+    },
+    {
+      "id": "product_41",
+      "name": "Samotny Miś",
+      "description": "Samodzielna figurka misia z wosku – słodki i pachnący drobiazg.",
+      "image": "sammis.png"
+    },
+    {
+      "id": "product_42",
+      "name": "Serce Pełne Kwiatów",
+      "description": "Pudełko w kształcie serca wypełnione po brzegi misternie wykonanymi różami.",
+      "image": "serceox.png"
+    },
+    {
+      "id": "product_43",
+      "name": "Serdeczne Życzenia",
+      "description": "Kompozycja z topperem 'Serdeczne Życzenia', uniwersalna na każdą okazję.",
+      "image": "serdecnezycienia.png"
+    },
+    {
+      "id": "product_44",
+      "name": "Stroik z Misiem",
+      "description": "Uroczy stroik z centralnie umieszczonym misiem w otoczeniu delikatnego tiulu.",
+      "image": "sreoikzmisie.png"
+    },
+    {
+      "id": "product_45",
+      "name": "Uniwersalny Stroik",
+      "description": "Klasyczny stroik woskowy, pasujący do każdego wystroju i na każdą porę roku.",
+      "image": "stroik.png"
+    },
+    {
+      "id": "product_46",
+      "name": "Świąteczny Box",
+      "description": "Zimowy box prezentowy z motywem śnieżynek, choinek i świątecznej magii.",
+      "image": "swiaczenybox.png"
+    },
+    {
+      "id": "product_47",
+      "name": "Box Premium",
+      "description": "Nasza specjalność – luksusowy box pełen zapachu i ręcznego kunsztu.",
+      "image": "u nas box .png"
+    },
+    {
+      "id": "product_48",
+      "name": "Pachnący Stroik",
+      "description": "Intensywnie pachnąca kompozycja, która wypełni Twój dom pięknym aromatem.",
+      "image": "zapachowystoik.png"
+    }
+  ]
+}
