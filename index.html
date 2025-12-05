@@ -6,6 +6,21 @@
     <title>Świecowe Love - Ręcznie robione kwiaty z wosku i świece</title>
     <meta name="description" content="Świecowe Love – Ręcznie robimy kwiaty z wosku oraz świece, również eleganckie boxy, pachnące świece i bukiety, które żyją wiecznie.">
     
+    <!-- Custom Styles for Responsive Product Images -->
+    <style>
+        @media (max-width: 767px) {
+            .product-image-container {
+                height: 300px !important;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .product-image-container {
+                height: 400px !important;
+            }
+        }
+    </style>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="image/Logo.ico">
     
@@ -54,6 +69,43 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        
+        /* Mobile menu animation */
+        #mobile-menu {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu:not(.hidden) {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 500px;
+            display: block !important;
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        /* Smooth link animations */
+        #mobile-menu a {
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        #mobile-menu:not(.hidden) a {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Override any other styles that might hide the mobile menu */
+        #mobile-menu:not(.hidden) {
+            visibility: visible !important;
+            height: auto !important;
+            background-color: white !important;
+            z-index: 9999 !important;
         }
         
         body {
@@ -108,6 +160,43 @@
         .delay-600 {
             animation-delay: 0.6s;
             opacity: 0;
+        }
+        
+        /* Carousel Styles */
+        .carousel-item {
+            flex: 0 0 100%;
+            min-width: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-item {
+                flex: 0 0 50%;
+                min-width: 50%;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .carousel-item {
+                flex: 0 0 33.333%;
+                min-width: 33.333%;
+            }
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            transition: background-color 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background-color: #f87171;
+        }
+        
+        .carousel-dot:hover {
+            background-color: #fda4b5;
+            transform: scale(1.2);
         }
         
         /* Scroll Animations */
@@ -187,8 +276,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-4">
-                    <img src="image/Logo.png" alt="Świecowe Love Logo" class="h-12 w-auto">
-                    <div class="text-xl font-bold text-rose-400 font-dancing hidden sm:block">Świecowe Love</div>
+                    <img src="image/Logo.png" alt="Świecowe Love Logo" class="h-10 w-auto">
+                    <div class="text-lg font-bold text-rose-400 font-dancing">Świecowe Love</div>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-6">
@@ -196,7 +285,6 @@
                         <a href="#home" class="text-gray-700 hover:text-rose-400 transition-colors font-medium">Strona Główna</a>
                         <a href="#o-nas" class="text-gray-700 hover:text-rose-400 transition-colors font-medium">O Nas</a>
                         <a href="#produkty" class="text-gray-700 hover:text-rose-400 transition-colors font-medium">Produkty</a>
-                        <a href="#blog" class="text-gray-700 hover:text-rose-400 transition-colors font-medium">Blog</a>
                         <a href="#kontakt" class="text-gray-700 hover:text-rose-400 transition-colors font-medium">Kontakt</a>
                     </div>
                     <button onclick="showAdminLogin()" class="text-gray-400 hover:text-rose-400 transition-colors text-sm ml-4 pl-4 border-l border-gray-200">
@@ -204,14 +292,31 @@
                     </button>
                 </div>
                 
-                <div class="flex md:hidden items-center gap-2">
+                <div class="flex md:hidden items-center gap-3">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-rose-500 transition-all duration-300 cursor-pointer p-3 rounded-xl bg-white shadow-lg hover:shadow-xl hover:bg-rose-50 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50 transform hover:scale-105 z-50 relative animate-pulse hover:animate-none">
+                        <svg class="h-6 w-6 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                     <button onclick="showAdminLogin()" class="text-gray-400 hover:text-rose-400 transition-colors text-lg font-medium whitespace-nowrap" title="Panel administracyjny">
-                            🔐
+                        🔐
                     </button>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-gradient-to-b from-white to-rose-50 shadow-xl fixed top-20 left-0 right-0 z-50 p-0 min-h-[200px] hidden border-t-2 border-rose-200">
+        <div class="max-w-7xl mx-auto bg-white/90 backdrop-blur-sm px-4">
+            <div class="py-3 space-y-0">
+                <a href="#home" class="block px-6 py-4 text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-50 hover:shadow-sm transition-all duration-300 border-b border-gray-100" style="transition-delay: 0.1s;">Strona Główna</a>
+                <a href="#o-nas" class="block px-6 py-4 text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-50 hover:shadow-sm transition-all duration-300 border-b border-gray-100" style="transition-delay: 0.15s;">O Nas</a>
+                <a href="#produkty" class="block px-6 py-4 text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-50 hover:shadow-sm transition-all duration-300 border-b border-gray-100" style="transition-delay: 0.2s;">Produkty</a>
+                <a href="#kontakt" class="block px-6 py-4 text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-50 hover:shadow-sm transition-all duration-300" style="transition-delay: 0.25s;">Kontakt</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg">
@@ -313,8 +418,31 @@
                 Odkryj naszą kolekcję ręcznie robionych kwiatów z wosku i świec
             </p>
             
-            <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Products will be dynamically inserted here -->
+            <!-- Carousel Container -->
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 group">
+                <!-- Navigation Arrows -->
+                <button id="prev-product-btn" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100" onclick="prevProductSlide()">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="next-product-btn" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100" onclick="nextProductSlide()">
+                    <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                
+                <!-- Products Carousel -->
+                <div id="products-carousel" class="overflow-hidden">
+                    <div id="products-track" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Products will be dynamically inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Dots Indicator -->
+                <div id="carousel-dots" class="flex justify-center mt-6 space-x-2">
+                    <!-- Dots will be dynamically inserted here -->
+                </div>
             </div>
             
             <div id="load-more-container" class="text-center mt-12 hidden animate-fadeIn animate-delay-2">
@@ -325,19 +453,6 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 lg:py-32 bg-cream-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900 font-dancing animate-fadeIn">Nasz Blog</h2>
-            <p class="text-center text-gray-600 text-lg mb-16 max-w-2xl mx-auto animate-fadeIn animate-delay-1">
-                Najnowsze kreacje i inspiracje
-            </p>
-            
-            <div id="blog-posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog posts will be dynamically inserted here -->
-            </div>
-        </div>
-    </section>
 
     <!-- Kontakt Section -->
     <section id="kontakt" class="py-20 lg:py-32 bg-rose-50">
@@ -377,7 +492,6 @@
                         <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Strona Główna</a></li>
                         <li><a href="#o-nas" class="text-gray-400 hover:text-white transition-colors">O Nas</a></li>
                         <li><a href="#produkty" class="text-gray-400 hover:text-white transition-colors">Produkty</a></li>
-                        <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
                         <li><a href="#kontakt" class="text-gray-400 hover:text-white transition-colors">Kontakt</a></li>
                     </ul>
                 </div>
@@ -448,9 +562,7 @@
                     <button onclick="switchTab('slider')" id="tab-btn-slider" class="px-4 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors whitespace-nowrap">
                         🎠 Slider/Zdjęcia
                     </button>
-                    <button onclick="switchTab('blog')" id="tab-btn-blog" class="px-4 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors whitespace-nowrap">
-                        📝 Blog
-                    </button>
+
                     <button onclick="switchTab('save')" id="tab-btn-save" class="px-4 py-3 font-semibold border-b-2 border-transparent text-gray-500 hover:text-gray-900 transition-colors whitespace-nowrap">
                         💾 Zapisz Zmiany
                     </button>
@@ -511,11 +623,23 @@
                         
                         <div class="mb-4">
                             <label class="block text-sm font-semibold mb-2">Zdjęcie</label>
-                            <select id="about-image" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none">
-                                <option value="">Wybierz zdjęcie...</option>
+                            <select id="about-image" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                                <option value="">Wybierz zdjęcie z listy...</option>
                             </select>
+                            <input type="text" id="about-image-manual" placeholder="Lub wpisz nazwę pliku (np. nowe-zdjecie.png)" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                            <div class="mb-2">
+                                <label class="block text-sm font-semibold mb-2">Lub wybierz nowe zdjęcie z komputera:</label>
+                                <input type="file" id="about-image-upload" accept="image/*" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none" onchange="previewImage(event, 'about-image-preview-img', 'about-image-preview-container')">
+                            </div>
+                            <button type="button" onclick="refreshImageLists()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                🔄 Odśwież listę zdjęć
+                            </button>
                             <div id="about-image-preview" class="mt-4 hidden">
                                 <img src="" alt="Podgląd" class="h-40 rounded-lg shadow-md">
+                            </div>
+                            <div id="about-image-preview-container" class="mt-4 hidden max-w-xs">
+                                <p class="text-sm font-semibold mb-2 text-gray-700">Podgląd wybranego zdjęcia:</p>
+                                <img id="about-image-preview-img" src="" alt="Podgląd" class="w-full h-40 object-cover rounded-lg shadow-md border border-gray-200">
                             </div>
                         </div>
                         
@@ -594,11 +718,23 @@
                             
                             <div class="mb-4">
                                 <label class="block text-sm font-semibold mb-2">Zdjęcie</label>
-                                <select id="product-image" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none">
-                                    <option value="">Wybierz zdjęcie...</option>
+                                <select id="product-image" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                                    <option value="">Wybierz zdjęcie z listy...</option>
                                 </select>
+                                <input type="text" id="product-image-manual" placeholder="Lub wpisz nazwę pliku (np. nowe-zdjecie.png)" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                                <div class="mb-2">
+                                    <label class="block text-sm font-semibold mb-2">Lub wybierz nowe zdjęcie z komputera:</label>
+                                    <input type="file" id="product-image-upload" accept="image/*" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none" onchange="previewImage(event, 'product-image-preview-img', 'product-image-preview-container')">
+                                </div>
+                                <button type="button" onclick="refreshImageLists()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                    🔄 Odśwież listę zdjęć
+                                </button>
                                 <div id="product-image-preview" class="mt-4 hidden">
                                     <img src="" alt="Podgląd" class="h-40 rounded-lg shadow-md">
+                                </div>
+                                <div id="product-image-preview-container" class="mt-4 hidden max-w-xs">
+                                    <p class="text-sm font-semibold mb-2 text-gray-700">Podgląd wybranego zdjęcia:</p>
+                                    <img id="product-image-preview-img" src="" alt="Podgląd" class="w-full h-40 object-cover rounded-lg shadow-md border border-gray-200">
                                 </div>
                             </div>
                             
@@ -651,12 +787,25 @@
                             
                             <div class="mb-4">
                                 <label class="block text-sm font-semibold mb-2">Zdjęcie</label>
-                                <select id="gallery-image-select" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none">
-                                    <option value="">Wybierz zdjęcie...</option>
+                                <select id="gallery-image-select" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                                    <option value="">Wybierz zdjęcie z listy...</option>
                                 </select>
+                                <input type="text" id="gallery-image-manual" placeholder="Lub wpisz nazwę pliku (np. nowe-zdjecie.png)" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                                <div class="mb-2">
+                                    <label class="block text-sm font-semibold mb-2">Lub wybierz nowe zdjęcie z komputera:</label>
+                                    <input type="file" id="gallery-image-upload" accept="image/*" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none" onchange="previewImage(event, 'gallery-image-preview-img', 'gallery-image-preview-container')">
+                                </div>
+                                <button type="button" onclick="refreshImageLists()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                    🔄 Odśwież listę zdjęć
+                                </button>
                                 <div id="gallery-image-preview" class="mt-4 hidden">
                                     <img src="" alt="Podgląd" class="h-40 rounded-lg shadow-md">
                                 </div>
+                                <div id="gallery-image-preview-container" class="mt-4 hidden max-w-xs">
+                                    <p class="text-sm font-semibold mb-2 text-gray-700">Podgląd wybranego zdjęcia:</p>
+                                    <img id="gallery-image-preview-img" src="" alt="Podgląd" class="w-full h-40 object-cover rounded-lg shadow-md border border-gray-200">
+                                </div>
+                                <div id="gallery-image-selection-buttons" class="mt-4"></div>
                             </div>
                             
                             <div class="mb-4">
@@ -740,12 +889,25 @@
                             
                             <div class="mb-4">
                                 <label class="block text-sm font-semibold mb-2">Zdjęcie</label>
-                                <select id="slider-image-select" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none">
-                                    <option value="">Wybierz zdjęcie...</option>
+                                <select id="slider-image-select" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                                    <option value="">Wybierz zdjęcie z listy...</option>
                                 </select>
+                                <input type="text" id="slider-image-manual" placeholder="Lub wpisz nazwę pliku (np. nowe-zdjecie.png)" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none mb-2">
+                                <div class="mb-2">
+                                    <label class="block text-sm font-semibold mb-2">Lub wybierz nowe zdjęcie z komputera:</label>
+                                    <input type="file" id="slider-image-upload" accept="image/*" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none" onchange="previewImage(event, 'slider-image-preview-img', 'slider-image-preview-container')">
+                                </div>
+                                <button type="button" onclick="refreshImageLists()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm">
+                                    🔄 Odśwież listę zdjęć
+                                </button>
                                 <div id="slider-image-preview" class="mt-4 hidden">
                                     <img src="" alt="Podgląd" class="h-40 rounded-lg shadow-md">
                                 </div>
+                                <div id="slider-image-preview-container" class="mt-4 hidden max-w-xs">
+                                    <p class="text-sm font-semibold mb-2 text-gray-700">Podgląd wybranego zdjęcia:</p>
+                                    <img id="slider-image-preview-img" src="" alt="Podgląd" class="w-full h-40 object-cover rounded-lg shadow-md border border-gray-200">
+                                </div>
+                                <div id="slider-image-selection-buttons" class="mt-4"></div>
                             </div>
                             
                             <div class="mb-4">
@@ -800,52 +962,6 @@
                     </div>
                 </div>
 
-                <!-- Blog Tab -->
-                <div id="tab-content-blog" class="tab-content hidden">
-                    <!-- Add/Edit Post Form -->
-                    <div class="bg-cream-100 rounded-xl p-6 mb-8">
-                        <h4 class="text-xl font-bold mb-4">Dodaj / Edytuj Post</h4>
-                        <input type="hidden" id="edit-post-id">
-                        
-                        <div class="mb-4">
-                            <label class="block text-sm font-semibold mb-2">Nazwa Posta</label>
-                            <input type="text" id="post-title" placeholder="Np. Nowy bukiet różany" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none">
-                        </div>
-                        
-                        <div class="mb-4">
-                            <label class="block text-sm font-semibold mb-2">Opis</label>
-                            <textarea id="post-description" rows="4" placeholder="Opisz produkt..." class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none"></textarea>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <label class="block text-sm font-semibold mb-2">Zdjęcie (wybierz z folderu image)</label>
-                            <select id="post-image" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-rose-400 focus:outline-none">
-                                <option value="">Wybierz zdjęcie...</option>
-                            </select>
-                            <div id="image-preview" class="mt-4 hidden">
-                                <img src="" alt="Podgląd" class="h-40 rounded-lg shadow-md">
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <button onclick="savePost()" class="px-8 py-3 bg-rose-400 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">
-                                ✅ Dodaj/Edytuj Post
-                            </button>
-                            <button onclick="clearForm()" class="px-8 py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
-                                🔄 Wyczyść
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-4"><strong>Uwaga:</strong> Po dodaniu/edycji posta, przejdź do zakładki "💾 Zapisz Zmiany" aby zapisać wszystkie zmiany do pliku JSON.</p>
-                    </div>
-
-                    <!-- Posts List -->
-                    <div>
-                        <h4 class="text-xl font-bold mb-4">Lista Postów</h4>
-                        <div id="admin-posts-list" class="space-y-4">
-                            <!-- Posts will be listed here -->
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Save Changes Tab -->
                 <div id="tab-content-save" class="tab-content hidden">
@@ -864,15 +980,7 @@
                                 <p class="text-xs text-gray-500 mt-2">Zapisz pobrany plik w folderze ze stroną</p>
                             </div>
                             
-                            <!-- Save Posts -->
-                            <div class="bg-white rounded-lg p-6 shadow-md">
-                                <h5 class="font-bold text-lg mb-3">📝 Posty Bloga</h5>
-                                <p class="text-sm text-gray-600 mb-4">Zapisuje wszystkie posty bloga</p>
-                                <button onclick="downloadPostsJSON()" class="w-full px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors">
-                                    💾 Pobierz posts.json
-                                </button>
-                                <p class="text-xs text-gray-500 mt-2">Zapisz pobrany plik w folderze ze stroną</p>
-                            </div>
+
                             
                             <!-- Save All -->
                             <div class="bg-white rounded-lg p-6 shadow-md border-2 border-rose-400">
@@ -892,6 +1000,16 @@
                                     💾 Pobierz Jeden Plik
                                 </button>
                                 <p class="text-xs text-gray-500 mt-2">Jeden plik zawierający wszystkie dane strony</p>
+                            </div>
+                            
+                            <!-- Refresh All Content -->
+                            <div class="bg-white rounded-lg p-6 shadow-md border-2 border-green-400 mt-6">
+                                <h5 class="font-bold text-lg mb-3">🔄 Odśwież Zawartość</h5>
+                                <p class="text-sm text-gray-600 mb-4">Załaduj ponownie wszystkie dane z plików JSON</p>
+                                <button onclick="refreshAllContent()" class="w-full px-6 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                                    🔄 Odśwież Całą Stronę
+                                </button>
+                                <p class="text-xs text-gray-500 mt-2">Załaduj najnowsze dane z plików JSON</p>
                             </div>
                                     
                         
@@ -917,15 +1035,97 @@
 
     <script>
         // Lista zdjęć z folderu image
-        const availableImages = [
-            'bialahoinka.png', 'cos.png', 'dekoracje.png', 'drewno.png', 'drwno1.png',
-            'hartdwd.png', 'haryblue.png', 'harykwiatk.png', 'hoinka cos.png', 'hoinkabiala.png',
-            'kochanymrodzicompan.png', 'kwiaty.png', 'malahoinka.png', 'misczarnepudlo.png',
-            'misiek.png', 'mispani.png', 'mispudleko.png', 'mispurple.png', 'panizhoinkamala.png',
-            'panzczyms.png', 'pojazd.png', 'pojazdkwiaty.png', 'pudl2.png', 'pudlo.png',
-            'redkoreck.png', 'rowe2r.png', 'rower.png', 'rowerek pani.jpg', 'rowerekpani.png',
-            'rowermamie.png', 'sammis.png', 'zdjmispudelko.png'
-        ];
+        // This will be dynamically populated
+        let availableImages = [];
+        
+        // Function to dynamically scan and populate available images
+        async function scanAvailableImages() {
+            // List of common image filenames that might exist in the folder
+            const commonImageNames = [
+                // Original images from the folder
+                '2stroiki.png', 'BOXLOSDKI.PNG', 'JEZU.PNG', 'Logo.ico', 'Logo.png', 'Malybox z misiem.png', 
+                'babci.png', 'bialahoinka.png', 'boxitd.png', 'boxsiwcei mis.png', 'boxswiatczeny.png',
+                'boxunas.png', 'cejekd.png', 'cos.png', 'dekoracje.png', 'drewno.png', 'drwno1.png',
+                'emmeme.png', 'hartdwd.png', 'haryblue.png', 'harykwiatk.png', 'hoinka cos.png',
+                'hoinkabiala.png', 'jezus.png', 'kccb.png', 'kochanejmamie.png', 'kochanejzonie.png',
+                'kochanymrodzicompan.png', 'kwiaty.png', 'malahoinka.png', 'malybox swice.png',
+                'matkaboska.png', 'matkaboska2.png', 'mememox.png', 'mis.png', 'misczarnepudlo.png',
+                'misiek.png', 'mispani.png', 'mispudleko.png', 'mispurple.png', 'mjsbox.png',
+                'panizhoinkamala.png', 'panzczyms.png', 'pojazd.png', 'pojazdkwiaty.png',
+                'pudl2.png', 'pudlo.png', 'redkoreck.png', 'rowe2r.png', 'rower.png',
+                'rowerek pani.jpg', 'rowerekpani.png', 'rowermamie.png', 'sammis.png', 'serceox.png',
+                'serdecnezycienia.png', 'sreoikzmisie.png', 'stroik.png', 'swiaczenybox.png', 'tlo.png',
+                'u nas box .png', 'zapachowystoik.png', 'zdjmispudelko.png', 'zyciepoo18.png',
+                
+                // Additional common names to check for newly added images
+                'misiek.png', 'dekoracje.png', 'haryblue.png', 'pudlo.png', 'kwiaty.png', 'malahoinka.png',
+                'bialahoinka.png', 'cos.png', 'drewno.png', 'drwno1.png',
+                'mispani.png', 'mispudleko.png', 'mispurple.png', 
+                'rowerek pani.jpg', 'zdjmispudelko.png',
+                
+                // Generic names for newly added images
+                'nowy-produkt.png', 'nowy-produkt.jpg', 'nowy-produkt.jpeg',
+                'produkt1.png', 'produkt2.png', 'produkt3.png', 'produkt4.png', 'produkt5.png',
+                'produkt6.png', 'produkt7.png', 'produkt8.png', 'produkt9.png', 'produkt10.png',
+                'zdjecie1.png', 'zdjecie2.png', 'zdjecie3.png', 'zdjecie4.png', 'zdjecie5.png',
+                'zdjecie6.png', 'zdjecie7.png', 'zdjecie8.png', 'zdjecie9.png', 'zdjecie10.png',
+                'image1.png', 'image2.png', 'image3.png', 'image4.png', 'image5.png',
+                'image6.png', 'image7.png', 'image8.png', 'image9.png', 'image10.png',
+                'photo1.png', 'photo2.png', 'photo3.png', 'photo4.png', 'photo5.png',
+                'photo6.png', 'photo7.png', 'photo8.png', 'photo9.png', 'photo10.png',
+                'box1.png', 'box2.png', 'box3.png', 'box4.png', 'box5.png',
+                'box6.png', 'box7.png', 'box8.png', 'box9.png', 'box10.png'
+            ];
+            
+            // Test which images actually exist by trying to load them
+            const promises = commonImageNames.map(async (imageName) => {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => resolve(imageName);
+                    img.onerror = () => resolve(null);
+                    img.src = `image/${imageName}`;
+                });
+            });
+            
+            // Wait for all image loading attempts
+            const results = await Promise.all(promises);
+            
+            // Filter out null results (images that didn't load)
+            availableImages = results.filter(result => result !== null);
+            
+            // Remove duplicates
+            availableImages = [...new Set(availableImages)];
+            
+            console.log(`Found ${availableImages.length} available images`);
+            
+            // Repopulate all image dropdowns
+            repopulateAllImageDropdowns();
+        }
+        
+        // Function to repopulate all image dropdowns
+        function repopulateAllImageDropdowns() {
+            populateImageSelect();
+            populateAboutImageSelect();
+            populateProductImageSelect();
+            populateGalleryImageSelect();
+            populateSliderImageSelect();
+            
+            // Repopulate image selection buttons if on relevant tabs
+            const galleryTab = document.getElementById('tab-content-gallery');
+            const sliderTab = document.getElementById('tab-content-slider');
+            
+            if (galleryTab && !galleryTab.classList.contains('hidden')) {
+                setTimeout(() => {
+                    generateImageSelectionButtons('gallery-image-selection-buttons', 'gallery-image-select', 'gallery-image-preview-img', 'gallery-image-preview-container');
+                }, 100);
+            }
+            
+            if (sliderTab && !sliderTab.classList.contains('hidden')) {
+                setTimeout(() => {
+                    generateImageSelectionButtons('slider-image-selection-buttons', 'slider-image-select', 'slider-image-preview-img', 'slider-image-preview-container');
+                }, 100);
+            }
+        }
 
         // Sample products
         let products = [
@@ -967,52 +1167,18 @@
             }
         ];
 
-        // Load posts from posts.json or localStorage
-        async function loadPosts() {
-            // First try to load from combined JSON file
-            try {
-                const response = await fetch('./swiecowe-love-complete.json');
-                if (response.ok) {
-                    const combinedData = await response.json();
-                    if (combinedData.posts) {
-                        // Also save to localStorage for admin panel
-                        localStorage.setItem('swiecowe-love-posts', JSON.stringify(combinedData.posts));
-                        return combinedData.posts;
-                    }
-                }
-            } catch (error) {
-                console.log('Could not load swiecowe-love-complete.json, trying posts.json');
-            }
-            
-            // Then try to load from posts.json
-            try {
-                // First try to load from posts.json
-                const response = await fetch('./posts.json');
-                if (response.ok) {
-                    const posts = await response.json();
-                    // Also save to localStorage for admin panel
-                    localStorage.setItem('swiecowe-love-posts', JSON.stringify(posts));
-                    return posts;
-                }
-            } catch (error) {
-                console.log('Could not load posts.json, using localStorage');
-            }
-            
-            // Fallback to localStorage
-            const postsJSON = localStorage.getItem('swiecowe-love-posts');
-            return postsJSON ? JSON.parse(postsJSON) : [];
-        }
+
+        
+
 
         // Load products from products.json or use default
         async function loadProducts() {
-            // First try to load from combined JSON file
+            // Try to load from combined JSON file
             try {
-                const response = await fetch('./swiecowe-love-complete.json');
+                const response = await fetch('./swiecowe-love-complete.json?v=' + Date.now(), {cache: 'no-cache'});
                 if (response.ok) {
                     const combinedData = await response.json();
                     if (combinedData.products) {
-                        // Also save to localStorage for admin panel
-                        localStorage.setItem('swiecowe-love-products', JSON.stringify(combinedData.products));
                         return combinedData.products;
                     }
                 }
@@ -1023,62 +1189,49 @@
             // Then try to load from products.json
             try {
                 // First try to load from products.json
-                const response = await fetch('./products.json');
+                const response = await fetch('./products.json?v=' + Date.now(), {cache: 'no-cache'});
                 if (response.ok) {
                     const productsData = await response.json();
-                    // Also save to localStorage for admin panel
-                    localStorage.setItem('swiecowe-love-products', JSON.stringify(productsData));
                     return productsData;
                 }
             } catch (error) {
                 console.log('Could not load products.json, using default products');
             }
             
-            // Fallback to localStorage or default
-            const productsJSON = localStorage.getItem('swiecowe-love-products');
-            if (productsJSON) {
-                return JSON.parse(productsJSON);
-            }
-            
-            // Return default products
-            return [
-                {
-                    id: '1',
-                    name: 'Bukiet Miś z Różami',
-                    description: 'Uroczy miś z woskowych róż w eleganckim pudełku',
-                    image: 'misiek.png'
-                },
-                {
-                    id: '2',
-                    name: 'Stroik Urodzinowy',
-                    description: 'Piękny stroik urodzinowy z kwiatami z wosku',
-                    image: 'dekoracje.png'
-                },
-                {
-                    id: '3',
-                    name: 'Rowerek z Kwiatami',
-                    description: 'Dekoracyjny rowerek wypełniony woskowymi kwiatami',
-                    image: 'rower.png'
-                },
-                {
-                    id: '4',
-                    name: 'Elegancki Box',
-                    description: 'Luksusowy box z pachnącymi świecami',
-                    image: 'pudlo.png'
-                },
-                {
-                    id: '5',
-                    name: 'Kwiaty w Pudełku',
-                    description: 'Wieczne kwiaty z wosku w elegankim opakowaniu',
-                    image: 'kwiaty.png'
-                },
-                {
-                    id: '6',
-                    name: 'Świąteczna Choinka',
-                    description: 'Dekoracyjna choinka z woskowych ozdób',
-                    image: 'malahoinka.png'
-                }
+            // If no products found, automatically generate products from images in the folder
+            // This will scan for images and create products automatically
+            return generateProductsFromImages();
+        }
+        
+        // Automatically generate products from images in the folder
+        async function generateProductsFromImages() {
+            // List of known image files that should be used for products
+            // In a real implementation with server-side scanning, this would be dynamic
+            // For now, we'll use a predefined list of images that exist in the folder
+            const imageFiles = [
+                'misiek.png', 'dekoracje.png', 'haryblue.png', 'pudlo.png', 'kwiaty.png', 'malahoinka.png',
+                '2stroiki.png', 'BOXLOSDKI.PNG', 'babci.png', 'boxsiwcei mis.png', 'boxswiatczeny.png',
+                'boxunas.png', 'cejekd.png', 'cos.png', 'drewno.png', 'emmeme.png', 'hartdwd.png',
+                'harykwiatk.png', 'hoinka cos.png', 'hoinkabiala.png', 'jezus.png', 'kccb.png',
+                'kochanejmamie.png', 'kochanejzonie.png', 'kochanymrodzicompan.png', 'matkaboska.png',
+                'matkaboska2.png', 'mememox.png', 'misczarnepudlo.png', 'mjsbox.png',
+                'panizhoinkamala.png', 'panzczyms.png', 'pojazd.png', 'pojazdkwiaty.png',
+                'pudl2.png', 'redkoreck.png', 'rowe2r.png', 'rower.png', 'rowerekpani.png',
+                'rowermamie.png', 'sammis.png', 'serceox.png', 'serdecnezycienia.png', 'sreoikzmisie.png',
+                'stroik.png', 'swiaczenybox.png', 'u nas box .png', 'zapachowystoik.png'
             ];
+            
+            // Generate products from these images
+            const products = imageFiles.map((image, index) => ({
+                id: `product_${index + 1}`,
+                name: `Produkt ${index + 1}`,
+                description: `Pięknie wykonany produkt z naszej kolekcji. Każdy element jest tworzony ręcznie z najwyższą starannością i pasją.`,
+                image: image
+            }));
+            
+            // Don't save to localStorage - everything should be in JSON files
+            
+            return products;
         }
 
         // Site data object to store all editable content
@@ -1122,9 +1275,10 @@
         };
 
         async function loadSiteData() {
+            // Always try to load fresh data from JSON files first
             // First try to load from combined JSON file
             try {
-                const response = await fetch('./swiecowe-love-complete.json');
+                const response = await fetch('./swiecowe-love-complete.json?v=' + Date.now(), {cache: 'no-cache'});
                 if (response.ok) {
                     const combinedData = await response.json();
                     if (combinedData.siteData) {
@@ -1134,7 +1288,6 @@
                         if (data.gallery) siteData.gallery = data.gallery;
                         if (data.products) siteData.products = data.products;
                         if (data.slider) siteData.slider = data.slider;
-                        localStorage.setItem('swiecowe-love-site-data', JSON.stringify(siteData));
                         return siteData;
                     }
                 }
@@ -1144,7 +1297,7 @@
             
             // Then try to load from site-data.json
             try {
-                const response = await fetch('./site-data.json');
+                const response = await fetch('./site-data.json?v=' + Date.now(), {cache: 'no-cache'});
                 if (response.ok) {
                     const data = await response.json();
                     if (data.hero) siteData.hero = data.hero;
@@ -1152,46 +1305,32 @@
                     if (data.gallery) siteData.gallery = data.gallery;
                     if (data.products) siteData.products = data.products;
                     if (data.slider) siteData.slider = data.slider;
-                    localStorage.setItem('swiecowe-love-site-data', JSON.stringify(siteData));
                     return siteData;
                 }
             } catch (error) {
                 console.log('Could not load site-data.json, using defaults');
             }
             
-            const stored = localStorage.getItem('swiecowe-love-site-data');
-            if (stored) {
-                siteData = JSON.parse(stored);
-            }
             return siteData;
         }
 
-        // Save posts to localStorage WITHOUT auto-downloading
-        function savePosts(posts) {
-            localStorage.setItem('swiecowe-love-posts', JSON.stringify(posts));
-        }
 
-        // Save site data to localStorage WITHOUT auto-downloading
+
+        // Don't save to localStorage - everything should be in JSON files
         function saveSiteData(data) {
-            localStorage.setItem('swiecowe-love-site-data', JSON.stringify(data));
+            // Don't save to localStorage - everything should be in JSON files
             siteData = data;
+            
+            // Immediately refresh the UI with the new data
+            renderHero();
+            renderAbout();
+            renderGallery();
+            renderGalleryTitle();
+            renderProductsSection();
+            renderSlider();
         }
 
-        // Download posts.json file (called from Save Changes tab)
-        async function downloadPostsJSON() {
-            const posts = await loadPosts();
-            const dataStr = JSON.stringify(posts, null, 2);
-            const dataBlob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(dataBlob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'posts.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            alert('✅ Plik posts.json został pobrany! Skopiuj go do folderu ze stroną.');
-        }
+
 
         // Download site-data.json file (called from Save Changes tab)
         async function downloadSiteDataJSON() {
@@ -1236,13 +1375,11 @@
         async function downloadCombinedJSON() {
             try {
                 // Load all data
-                const posts = await loadPosts();
                 const products = await loadProducts();
                 
                 // Create combined data object
                 const combinedData = {
                     siteData: siteData,
-                    posts: posts,
                     products: products
                 };
                 
@@ -1270,13 +1407,11 @@
                 return;
             }
             
-            if (!confirm('🔴 OSTATECZNE POTWIERDZENIE: Wszystkie posty, slajdy i ustawienia zostaną usunięte!')) {
+            if (!confirm('🔴 OSTATECZNE POTWIERDZENIE: Wszystkie slajdy i ustawienia zostaną usunięte!')) {
                 return;
             }
             
-            // Wyczyść localStorage
-            localStorage.removeItem('swiecowe-love-posts');
-            localStorage.removeItem('swiecowe-love-site-data');
+            // Don't use localStorage - everything should be in JSON files
             
             // Reset do wartości domyślnych
             siteData = {
@@ -1358,7 +1493,7 @@
                 }
             ];
             
-            localStorage.setItem('swiecowe-love-products', JSON.stringify(defaultProducts));
+            // Don't save to localStorage - everything should be in JSON files
             
             // Force refresh all sections
             renderProducts();
@@ -1372,91 +1507,200 @@
             
             alert('✅ Wszystkie dane zostały zresetowane!');
         }
+        
+        // Render blog posts function (placeholder)
+        async function renderBlogPosts() {
+            // Placeholder function - can be implemented later if needed
+            console.log('Rendering blog posts (if any)');
+            return Promise.resolve();
+        }
 
         // Render products
-        let productsVisible = 6; // Show 6 initially
         let currentProducts = [];
+        // Carousel variables
+        let currentProductIndex = 0;
+        let productsPerPage = window.innerWidth < 768 ? 1 : 3; // 1 for mobile, 3 for desktop
+        let totalProductPages = 0;
+        let carouselInterval;
+        let isCarouselPaused = false;
         
         async function renderProducts() {
             try {
-                // Load products from JSON or localStorage
+                // Load products from JSON files only
                 currentProducts = await loadProducts();
                 
-                const grid = document.getElementById('products-grid');
+                const track = document.getElementById('products-track');
+                const dotsContainer = document.getElementById('carousel-dots');
+                const prevBtn = document.getElementById('prev-product-btn');
+                const nextBtn = document.getElementById('next-product-btn');
                 const loadMoreContainer = document.getElementById('load-more-container');
-                if (!grid) return;
-                grid.innerHTML = '';
                 
-                productsToShow.forEach((product, index) => {
+                if (!track) return;
+                track.innerHTML = '';
+                
+                // Calculate responsive products per page
+                const screenWidth = window.innerWidth;
+                if (screenWidth < 768) {
+                    productsPerPage = 1; // Mobile
+                } else if (screenWidth < 1024) {
+                    productsPerPage = 2; // Tablet
+                } else {
+                    productsPerPage = 3; // Desktop
+                }
+                
+                totalProductPages = Math.ceil(currentProducts.length / productsPerPage);
+                
+                // Create product slides
+                for (let i = 0; i < currentProducts.length; i++) {
+                    const product = currentProducts[i];
                     const productCard = document.createElement('div');
-                    // Add staggered animation delays
-                    const delayClass = `animate-delay-${(index % 4) + 1}`;
-                    productCard.className = `group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fadeIn ${delayClass}`;
+                    productCard.className = 'carousel-item px-2';
                     productCard.innerHTML = `
-                        <div class="relative h-80 overflow-hidden">
-                            <img src="image/${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-2">${product.name}</h3>
-                            <p class="text-gray-600 mb-4">${product.description}</p>
-                            <a href="#kontakt" class="inline-flex items-center gap-2 bg-rose-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-rose-500 transition-all duration-300 hover:scale-105">
-                                💕 Zamów Teraz
-                            </a>
+                        <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
+                            <div class="relative product-image-container h-[500px] w-full max-w-[364px] overflow-hidden mx-auto" style="max-width: 364px;" >
+                                <img src="image/${product.image}" alt="${product.name}" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">${product.name}</h3>
+                                <p class="text-gray-600 mb-4 flex-grow">${product.description}</p>
+                                <a href="#kontakt" class="inline-flex items-center gap-2 bg-rose-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-rose-500 transition-all duration-300 hover:scale-105 mt-auto w-max">
+                                    💕 Zamów Teraz
+                                </a>
+                            </div>
                         </div>
                     `;
-                    grid.appendChild(productCard);
-                });
+                    track.appendChild(productCard);
+                }
                 
-                // Show/hide load more button
-                if (loadMoreContainer) {
-                    if (currentProducts.length > productsVisible) {
-                        loadMoreContainer.classList.remove('hidden');
-                    } else {
-                        loadMoreContainer.classList.add('hidden');
+                // Create dots
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < totalProductPages; i++) {
+                        const dot = document.createElement('div');
+                        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+                        dot.dataset.index = i;
+                        dot.addEventListener('click', () => goToProductSlide(i));
+                        dotsContainer.appendChild(dot);
                     }
                 }
+                
+                // Update button visibility
+                if (prevBtn) {
+                    prevBtn.style.display = totalProductPages > 1 ? 'block' : 'none';
+                }
+                if (nextBtn) {
+                    nextBtn.style.display = totalProductPages > 1 ? 'block' : 'none';
+                }
+                
+                // Hide load more button since we're using carousel
+                if (loadMoreContainer) {
+                    loadMoreContainer.classList.add('hidden');
+                }
+                
+                // Update carousel position and initialize auto-rotation
+                updateProductCarousel();
+                initCarouselAutoRotation();
             } catch (error) {
                 console.error('Error rendering products:', error);
             }
         }
         
-        function loadMoreProducts() {
-            try {
-                productsVisible = currentProducts.length; // Show all
-                renderProducts();
-            } catch (error) {
-                console.error('Error loading more products:', error);
-            }
-        }
-
-        // Render blog posts
-        async function renderBlogPosts() {
-            const posts = await loadPosts();
-            const container = document.getElementById('blog-posts');
-            container.innerHTML = '';
+        // Update product carousel position
+        function updateProductCarousel() {
+            const track = document.getElementById('products-track');
+            if (!track) return;
             
-            if (posts.length === 0) {
-                container.innerHTML = '<p class="text-gray-500 text-center col-span-full">Brak postów. Administrator może dodać nowe posty.</p>';
-                return;
-            }
+            const translateX = -(currentProductIndex * 100); // Move by 100% per slide
+            track.style.transform = `translateX(${translateX}%)`;
             
-            posts.forEach((post, index) => {
-                const postCard = document.createElement('div');
-                // Add staggered animation delays
-                const delayClass = `animate-delay-${(index % 4) + 1}`;
-                postCard.className = `group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fadeIn ${delayClass}`;
-                postCard.innerHTML = `
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="image/${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">${post.title}</h3>
-                        <p class="text-gray-600 line-clamp-3">${post.description}</p>
-                    </div>
-                `;
-                container.appendChild(postCard);
+            // Update active dot
+            const dots = document.querySelectorAll('#carousel-dots .carousel-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentProductIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
             });
         }
+        
+        // Go to next product slide
+        function nextProductSlide() {
+            if (currentProductIndex < totalProductPages - 1) {
+                currentProductIndex++;
+                updateProductCarousel();
+                resetCarouselTimer();
+            }
+        }
+        
+        // Go to previous product slide
+        function prevProductSlide() {
+            if (currentProductIndex > 0) {
+                currentProductIndex--;
+                updateProductCarousel();
+                resetCarouselTimer();
+            }
+        }
+        
+        // Go to specific product slide
+        function goToProductSlide(index) {
+            currentProductIndex = index;
+            updateProductCarousel();
+            resetCarouselTimer();
+        }
+        
+        // Reset carousel timer after user interaction
+        function resetCarouselTimer() {
+            clearInterval(carouselInterval);
+            initCarouselAutoRotation();
+        }
+        
+        // Handle window resize for responsive carousel
+        function handleResize() {
+            renderProducts(); // Re-render to adjust for new screen size
+        }
+        
+        // Add event listener for window resize
+        window.addEventListener('resize', handleResize);
+        
+        // Initialize carousel auto-rotation
+        function initCarouselAutoRotation() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => {
+                if (!isCarouselPaused && totalProductPages > 1) {
+                    if (currentProductIndex < totalProductPages - 1) {
+                        currentProductIndex++;
+                    } else {
+                        currentProductIndex = 0; // Loop back to first slide
+                    }
+                    updateProductCarousel();
+                }
+            }, 5000); // Rotate every 5 seconds
+        }
+        
+        // Pause carousel on hover and initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('products-carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => {
+                    isCarouselPaused = true;
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    isCarouselPaused = false;
+                });
+            }
+            
+            // Initialize auto-rotation after a short delay to ensure products are loaded
+            setTimeout(() => {
+                initCarouselAutoRotation();
+            }, 100);
+        });
+        
+        // Carousel replaces the load more functionality
+        // function loadMoreProducts() is no longer needed
+
+
 
         // Gallery rendering function
         function renderGallery() {
@@ -1609,37 +1853,77 @@
             document.getElementById('login-error').classList.add('hidden');
         }
 
-        function checkAdminPassword() {
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
+            
+            // Prevent errors if elements don't exist
+            if (!mobileMenu || !button) {
+                return;
+            }
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                // Change hamburger to X icon first for smooth transition
+                button.innerHTML = `
+                    <svg class="h-6 w-6 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                `;
+                // Small delay to ensure icon change before showing menu
+                setTimeout(() => {
+                    mobileMenu.classList.remove('hidden');
+                }, 10);
+            } else {
+                mobileMenu.classList.add('hidden');
+                // Change X back to hamburger icon
+                setTimeout(() => {
+                    button.innerHTML = `
+                        <svg class="h-6 w-6 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    `;
+                }, 300);
+            }
+        }
+
+        async function checkAdminPassword() {
             const password = document.getElementById('admin-password').value;
             if (password === '20082008') {
                 closeAdminLogin();
-                openAdminPanel();
+                await openAdminPanel();
             } else {
                 document.getElementById('login-error').classList.remove('hidden');
             }
         }
 
-        function openAdminPanel() {
+        async function openAdminPanel() {
             document.getElementById('admin-panel').classList.remove('hidden');
             populateImageSelect();
             populateAboutImageSelect();
             populateProductImageSelect();
             populateGalleryImageSelect();
             populateSliderImageSelect();
-            renderAdminPostsList();
+            // renderAdminPostsList(); // Placeholder - can be implemented later if needed
             renderAdminProductsList();
             renderAdminGalleryImagesList();
             renderAdminSliderImagesList();
             loadHeroData();
             loadAboutData();
-            loadGalleryData();
-            loadSliderData();
+            await loadGalleryData();
+            await loadSliderData();
             loadProductsData();
+            
+            // Generate image selection buttons for all tabs
+            setTimeout(() => {
+                generateImageSelectionButtons('product-image-selection-buttons', 'product-image-select', 'product-image-preview-img', 'product-image-preview-container');
+                generateImageSelectionButtons('gallery-image-selection-buttons', 'gallery-image-select', 'gallery-image-preview-img', 'gallery-image-preview-container');
+                generateImageSelectionButtons('slider-image-selection-buttons', 'slider-image-select', 'slider-image-preview-img', 'slider-image-preview-container');
+            }, 100);
         }
 
         function closeAdminPanel() {
             document.getElementById('admin-panel').classList.add('hidden');
-            clearForm();
         }
 
         // Tab switching
@@ -1664,20 +1948,39 @@
             const activeContent = document.getElementById(`tab-content-${tabName}`);
             if (activeContent) {
                 activeContent.classList.remove('hidden');
+                
+                // Load image data for specific tabs
+                if (tabName === 'gallery') {
+                    populateGalleryImageSelect();
+                    // Refresh admin gallery list when switching to gallery tab
+                    renderAdminGalleryImagesList();
+                    // Generate image selection buttons
+                    setTimeout(() => {
+                        generateImageSelectionButtons('gallery-image-selection-buttons', 'gallery-image-select', 'gallery-image-preview-img', 'gallery-image-preview-container');
+                    }, 100);
+                } else if (tabName === 'slider') {
+                    populateSliderImageSelect();
+                    // Refresh admin slider list when switching to slider tab
+                    renderAdminSliderImagesList();
+                    // Generate image selection buttons
+                    setTimeout(() => {
+                        generateImageSelectionButtons('slider-image-selection-buttons', 'slider-image-select', 'slider-image-preview-img', 'slider-image-preview-container');
+                    }, 100);
+                } else if (tabName === 'about') {
+                    populateAboutImageSelect();
+                } else if (tabName === 'products') {
+                    populateProductImageSelect();
+                    // Refresh admin products list when switching to products tab
+                    renderAdminProductsList();
+                    // Generate image selection buttons for products
+                    setTimeout(() => {
+                        generateImageSelectionButtons('product-image-selection-buttons', 'product-image-select', 'product-image-preview-img', 'product-image-preview-container');
+                    }, 100);
+                }
             }
         }
 
-        function populateImageSelect() {
-            const select = document.getElementById('post-image');
-            if (!select) return;
-            select.innerHTML = '<option value="">Wybierz zdjęcie...</option>';
-            availableImages.forEach(img => {
-                const option = document.createElement('option');
-                option.value = img;
-                option.textContent = img;
-                select.appendChild(option);
-            });
-        }
+
 
         function populateSliderImageSelect() {
             const select = document.getElementById('slider-image-select');
@@ -1739,6 +2042,8 @@
             
             // About image preview
             const aboutImageSelect = document.getElementById('about-image');
+            const aboutImageManual = document.getElementById('about-image-manual');
+            
             if (aboutImageSelect) {
                 aboutImageSelect.addEventListener('change', function() {
                     const preview = document.getElementById('about-image-preview');
@@ -1746,6 +2051,28 @@
                     if (this.value) {
                         img.src = 'image/' + this.value;
                         preview.classList.remove('hidden');
+                        // Sync manual input field
+                        if (aboutImageManual) {
+                            aboutImageManual.value = this.value;
+                        }
+                    } else {
+                        preview.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Manual input field preview for About section
+            if (aboutImageManual) {
+                aboutImageManual.addEventListener('input', function() {
+                    const preview = document.getElementById('about-image-preview');
+                    const img = preview.querySelector('img');
+                    if (this.value) {
+                        img.src = 'image/' + this.value;
+                        preview.classList.remove('hidden');
+                        // Sync select dropdown if image exists in availableImages
+                        if (aboutImageSelect && availableImages.includes(this.value)) {
+                            aboutImageSelect.value = this.value;
+                        }
                     } else {
                         preview.classList.add('hidden');
                     }
@@ -1756,6 +2083,8 @@
             
             // Product image preview
             const productImageSelect = document.getElementById('product-image');
+            const productImageManual = document.getElementById('product-image-manual');
+            
             if (productImageSelect) {
                 productImageSelect.addEventListener('change', function() {
                     const preview = document.getElementById('product-image-preview');
@@ -1763,6 +2092,28 @@
                     if (this.value) {
                         img.src = 'image/' + this.value;
                         preview.classList.remove('hidden');
+                        // Sync manual input field
+                        if (productImageManual) {
+                            productImageManual.value = this.value;
+                        }
+                    } else {
+                        preview.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Manual input field preview
+            if (productImageManual) {
+                productImageManual.addEventListener('input', function() {
+                    const preview = document.getElementById('product-image-preview');
+                    const img = preview.querySelector('img');
+                    if (this.value) {
+                        img.src = 'image/' + this.value;
+                        preview.classList.remove('hidden');
+                        // Sync select dropdown if image exists in availableImages
+                        if (productImageSelect && availableImages.includes(this.value)) {
+                            productImageSelect.value = this.value;
+                        }
                     } else {
                         preview.classList.add('hidden');
                     }
@@ -1771,6 +2122,8 @@
             
             // Gallery image preview
             const galleryImageSelect = document.getElementById('gallery-image-select');
+            const galleryImageManual = document.getElementById('gallery-image-manual');
+            
             if (galleryImageSelect) {
                 galleryImageSelect.addEventListener('change', function() {
                     const preview = document.getElementById('gallery-image-preview');
@@ -1778,6 +2131,28 @@
                     if (this.value) {
                         img.src = 'image/' + this.value;
                         preview.classList.remove('hidden');
+                        // Sync manual input field
+                        if (galleryImageManual) {
+                            galleryImageManual.value = this.value;
+                        }
+                    } else {
+                        preview.classList.add('hidden');
+                    }
+                });
+            }
+            
+            // Manual input field preview for Gallery section
+            if (galleryImageManual) {
+                galleryImageManual.addEventListener('input', function() {
+                    const preview = document.getElementById('gallery-image-preview');
+                    const img = preview.querySelector('img');
+                    if (this.value) {
+                        img.src = 'image/' + this.value;
+                        preview.classList.remove('hidden');
+                        // Sync select dropdown if image exists in availableImages
+                        if (galleryImageSelect && availableImages.includes(this.value)) {
+                            galleryImageSelect.value = this.value;
+                        }
                     } else {
                         preview.classList.add('hidden');
                     }
@@ -1814,6 +2189,7 @@
             document.getElementById('about-title').value = siteData.about.title;
             document.getElementById('about-description').value = siteData.about.description;
             document.getElementById('about-image').value = siteData.about.image;
+            document.getElementById('about-image-manual').value = siteData.about.image;
             
             // Set default values for image fit/position if not present
             document.getElementById('about-image-fit').value = siteData.about.imageFit || 'cover';
@@ -1843,7 +2219,22 @@
             siteData.about.mainTitle = document.getElementById('about-main-title').value;
             siteData.about.title = document.getElementById('about-title').value;
             siteData.about.description = document.getElementById('about-description').value;
-            siteData.about.image = document.getElementById('about-image').value;
+            
+            // Get image from select dropdown or manual input
+            let image = document.getElementById('about-image').value;
+            if (!image) {
+                image = document.getElementById('about-image-manual').value.trim();
+            }
+            
+            // Check if an image was uploaded
+            const imageUpload = document.getElementById('about-image-upload');
+            if (imageUpload.files && imageUpload.files[0]) {
+                alert('⚠️ Uwaga: Wybrano plik z komputera. Po zapisaniu zmian pamiętaj, aby ręcznie przesłać ten plik do folderu "image" na serwerze i użyć jego nazwy w konfiguracji.');
+                // For now, we'll still use the image field, but inform the user
+            }
+            
+            siteData.about.image = image;
+            
             siteData.about.imageFit = document.getElementById('about-image-fit').value;
             siteData.about.imagePosition = document.getElementById('about-image-position').value;
             saveSiteData(siteData);
@@ -1858,13 +2249,17 @@
         }
         
         // Load Gallery data into form
-        function loadGalleryData() {
+        async function loadGalleryData() {
+            // Load fresh data from JSON files
+            await loadSiteData();
             document.getElementById('gallery-title').value = siteData.gallery.title;
             renderAdminGalleryImagesList();
         }
         
         // Load Slider data into form
-        function loadSliderData() {
+        async function loadSliderData() {
+            // Load fresh data from JSON files
+            await loadSiteData();
             document.getElementById('slider-interval').value = siteData.slider.interval || 10000;
             renderAdminSliderImagesList();
         }
@@ -1891,14 +2286,27 @@
                     return;
                 }
                 
-                const src = document.getElementById('slider-image-select').value;
+                let src = document.getElementById('slider-image-select').value;
+                
+                // If no image selected from dropdown, use manual input
+                if (!src) {
+                    src = document.getElementById('slider-image-manual').value.trim();
+                }
+                
+                // Check if an image was uploaded
+                const imageUpload = document.getElementById('slider-image-upload');
+                if (imageUpload && imageUpload.files && imageUpload.files[0]) {
+                    alert('⚠️ Uwaga: Wybrano plik z komputera. Po zapisaniu zmian pamiętaj, aby ręcznie przesłać ten plik do folderu "image" na serwerze i użyć jego nazwy w konfiguracji.');
+                    // For now, we'll still use the src field, but inform the user
+                }
+                
                 const alt = document.getElementById('slider-image-alt').value.trim();
                 const fit = document.getElementById('slider-image-fit').value;
                 const position = document.getElementById('slider-image-position').value;
                 const editId = document.getElementById('edit-slider-image-id').value;
                 
                 if (!src) {
-                    alert('❌ Wybierz zdjęcie!');
+                    alert('❌ Wybierz zdjęcie lub wpisz nazwę pliku!');
                     return;
                 }
                 
@@ -1925,7 +2333,7 @@
                     siteData.slider.images.push(sliderImage);
                 }
                 
-                // Save to localStorage
+                // Don't save to localStorage - everything should be in JSON files
                 saveSiteData(siteData);
                 
                 // Refresh UI
@@ -1984,7 +2392,7 @@
                     // Remove the image
                     siteData.slider.images.splice(index, 1);
                     
-                    // Save to localStorage
+                    // Don't save to localStorage - everything should be in JSON files
                     saveSiteData(siteData);
                     
                     // Refresh UI
@@ -2095,6 +2503,72 @@
             });
         }
         
+        // Select image function
+        function selectImage(imageSrc, inputId, previewId, previewContainerId) {
+            // Set the selected image in the input field
+            const inputField = document.getElementById(inputId);
+            if (inputField) {
+                inputField.value = imageSrc;
+                
+                // Update preview if preview elements exist
+                const previewImg = document.getElementById(previewId);
+                const previewContainer = document.getElementById(previewContainerId);
+                
+                if (previewImg) {
+                    previewImg.src = 'image/' + imageSrc;
+                }
+                
+                if (previewContainer) {
+                    previewContainer.classList.remove('hidden');
+                }
+                
+                // Trigger change event to update any listeners
+                inputField.dispatchEvent(new Event('change'));
+            }
+        }
+        
+        // Generate image selection buttons
+        function generateImageSelectionButtons(containerId, inputId, previewId, previewContainerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            // Clear existing buttons
+            container.innerHTML = '';
+            
+            // Add title
+            const title = document.createElement('h5');
+            title.className = 'text-sm font-semibold mb-2';
+            title.textContent = 'Lub wybierz jedno z dostępnych zdjęć:';
+            container.appendChild(title);
+            
+            // Create grid for image buttons
+            const grid = document.createElement('div');
+            grid.className = 'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 max-h-60 overflow-y-auto p-2 border rounded-lg';
+            
+            // Add buttons for each available image
+            availableImages.slice(0, 30).forEach(img => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'p-1 rounded border hover:border-rose-400 transition-colors';
+                button.title = img;
+                button.onclick = () => selectImage(img, inputId, previewId, previewContainerId);
+                
+                const imgElement = document.createElement('img');
+                imgElement.src = 'image/' + img;
+                imgElement.alt = img;
+                imgElement.className = 'w-full h-16 object-cover rounded';
+                imgElement.onerror = function() {
+                    // If image fails to load, show a placeholder
+                    this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iMzIiIHk9IjMyIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+PzwvdGV4dD48L3N2Zz4=';
+                };
+                
+                button.appendChild(imgElement);
+                grid.appendChild(button);
+            });
+            
+            container.appendChild(grid);
+        }
+        
         // Save gallery image
         function saveGalleryImage() {
             try {
@@ -2104,14 +2578,27 @@
                     return;
                 }
                 
-                const src = document.getElementById('gallery-image-select').value;
+                let src = document.getElementById('gallery-image-select').value;
+                
+                // If no image selected from dropdown, use manual input
+                if (!src) {
+                    src = document.getElementById('gallery-image-manual').value.trim();
+                }
+                
+                // Check if an image was uploaded
+                const imageUpload = document.getElementById('gallery-image-upload');
+                if (imageUpload.files && imageUpload.files[0]) {
+                    alert('⚠️ Uwaga: Wybrano plik z komputera. Po zapisaniu zmian pamiętaj, aby ręcznie przesłać ten plik do folderu "image" na serwerze i użyć jego nazwy w konfiguracji.');
+                    // For now, we'll still use the src field, but inform the user
+                }
+                
                 const alt = document.getElementById('gallery-image-alt').value.trim();
                 const fit = document.getElementById('gallery-image-fit').value;
                 const position = document.getElementById('gallery-image-position').value;
                 const editId = document.getElementById('edit-gallery-image-id').value;
                 
                 if (!src) {
-                    alert('❌ Wybierz zdjęcie!');
+                    alert('❌ Wybierz zdjęcie lub wpisz nazwę pliku!');
                     return;
                 }
                 
@@ -2138,7 +2625,7 @@
                     siteData.gallery.images.push(galleryImage);
                 }
                 
-                // Save to localStorage
+                // Don't save to localStorage - everything should be in JSON files
                 saveSiteData(siteData);
                 
                 // Refresh UI
@@ -2163,6 +2650,7 @@
                 
                 document.getElementById('edit-gallery-image-id').value = index;
                 document.getElementById('gallery-image-select').value = image.src;
+                document.getElementById('gallery-image-manual').value = image.src;
                 document.getElementById('gallery-image-alt').value = image.alt;
                 document.getElementById('gallery-image-fit').value = image.fit;
                 document.getElementById('gallery-image-position').value = image.position;
@@ -2197,7 +2685,7 @@
                     // Remove the image
                     siteData.gallery.images.splice(index, 1);
                     
-                    // Save to localStorage
+                    // Don't save to localStorage - everything should be in JSON files
                     saveSiteData(siteData);
                     
                     // Refresh UI
@@ -2215,12 +2703,16 @@
         function clearGalleryImageForm() {
             try {
                 const select = document.getElementById('gallery-image-select');
+                const manualInput = document.getElementById('gallery-image-manual');
+                const imageUploadInput = document.getElementById('gallery-image-upload');
                 const altInput = document.getElementById('gallery-image-alt');
                 const fitSelect = document.getElementById('gallery-image-fit');
                 const positionSelect = document.getElementById('gallery-image-position');
                 const editIdInput = document.getElementById('edit-gallery-image-id');
                 
                 if (select) select.value = '';
+                if (manualInput) manualInput.value = '';
+                if (imageUploadInput) imageUploadInput.value = '';
                 if (altInput) altInput.value = '';
                 if (fitSelect) fitSelect.value = 'cover';
                 if (positionSelect) positionSelect.value = 'center center';
@@ -2228,6 +2720,9 @@
                 
                 const preview = document.getElementById('gallery-image-preview');
                 if (preview) preview.classList.add('hidden');
+                
+                const previewContainer = document.getElementById('gallery-image-preview-container');
+                if (previewContainer) previewContainer.classList.add('hidden');
             } catch (error) {
                 console.error('Error clearing gallery image form:', error);
             }
@@ -2352,119 +2847,14 @@
             }
         }
 
-        async function savePost() {
-            // Check if admin is logged in
-            if (document.getElementById('admin-panel').classList.contains('hidden')) {
-                alert('Musisz się zalogować jako administrator, aby dodać/edytować posty!');
-                return;
-            }
-            
-            const title = document.getElementById('post-title').value.trim();
-            const description = document.getElementById('post-description').value.trim();
-            const image = document.getElementById('post-image').value;
-            const editId = document.getElementById('edit-post-id').value;
-            
-            if (!title || !description || !image) {
-                alert('Proszę wypełnić wszystkie pola!');
-                return;
-            }
-            
-            const posts = await loadPosts();
-            
-            if (editId) {
-                // Edit existing post
-                const index = posts.findIndex(p => p.id === editId);
-                if (index !== -1) {
-                    posts[index] = { id: editId, title, description, image };
-                }
-            } else {
-                // Add new post
-                const newPost = {
-                    id: Date.now().toString(),
-                    title,
-                    description,
-                    image
-                };
-                posts.push(newPost);
-            }
-            
-            savePosts(posts);
-            await renderBlogPosts();
-            await renderAdminPostsList();
-            clearForm();
-            alert('✅ Post został dodany/edytowany! Przejdź do zakładki "💾 Zapisz Zmiany" aby pobrać plik JSON.');
-        }
 
-        function clearForm() {
-            document.getElementById('post-title').value = '';
-            document.getElementById('post-description').value = '';
-            document.getElementById('post-image').value = '';
-            document.getElementById('edit-post-id').value = '';
-            document.getElementById('image-preview').classList.add('hidden');
-        }
 
-        async function renderAdminPostsList() {
-            const posts = await loadPosts();
-            const container = document.getElementById('admin-posts-list');
-            container.innerHTML = '';
-            
-            if (posts.length === 0) {
-                container.innerHTML = '<p class="text-gray-500 text-center">Brak postów.</p>';
-                return;
-            }
-            
-            posts.forEach(post => {
-                const postItem = document.createElement('div');
-                postItem.className = 'flex items-center gap-4 bg-white p-4 rounded-lg shadow-md';
-                postItem.innerHTML = `
-                    <img src="image/${post.image}" alt="${post.title}" class="w-24 h-24 object-cover rounded-lg">
-                    <div class="flex-1">
-                        <h5 class="font-bold text-lg">${post.title}</h5>
-                        <p class="text-gray-600 text-sm line-clamp-2">${post.description}</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <button onclick="editPost('${post.id}')" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                            ✏️ Edytuj
-                        </button>
-                        <button onclick="deletePost('${post.id}')" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
-                            🗑️ Usuń
-                        </button>
-                    </div>
-                `;
-                container.appendChild(postItem);
-            });
-        }
 
-        async function editPost(id) {
-            const posts = await loadPosts();
-            const post = posts.find(p => p.id === id);
-            if (post) {
-                document.getElementById('edit-post-id').value = post.id;
-                document.getElementById('post-title').value = post.title;
-                document.getElementById('post-description').value = post.description;
-                document.getElementById('post-image').value = post.image;
-                
-                // Show preview
-                const preview = document.getElementById('image-preview');
-                const img = preview.querySelector('img');
-                img.src = 'image/' + post.image;
-                preview.classList.remove('hidden');
-                
-                // Scroll to form
-                document.querySelector('#admin-panel .bg-cream-100').scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+        
 
-        async function deletePost(id) {
-            if (confirm('Czy na pewno chcesz usunąć ten post?')) {
-                let posts = await loadPosts();
-                posts = posts.filter(p => p.id !== id);
-                savePosts(posts);
-                renderBlogPosts();
-                renderAdminPostsList();
-                alert('Post został usunięty!');
-            }
-        }
+
+
+
 
         // Slider functions removed as slider functionality is no longer needed
 
@@ -2501,7 +2891,20 @@
                 
                 const name = document.getElementById('product-name').value.trim();
                 const description = document.getElementById('product-description').value.trim();
-                const image = document.getElementById('product-image').value;
+                let image = document.getElementById('product-image').value;
+                
+                // If no image selected from dropdown, use manual input
+                if (!image) {
+                    image = document.getElementById('product-image-manual').value.trim();
+                }
+                
+                // Check if an image was uploaded
+                const imageUpload = document.getElementById('product-image-upload');
+                if (imageUpload.files && imageUpload.files[0]) {
+                    alert('⚠️ Uwaga: Wybrano plik z komputera. Po zapisaniu zmian pamiętaj, aby ręcznie przesłać ten plik do folderu "image" na serwerze i użyć jego nazwy w konfiguracji.');
+                    // For now, we'll still use the image field, but inform the user
+                }
+                
                 const editId = document.getElementById('edit-product-id').value;
                 
                 if (!name || !description || !image) {
@@ -2530,8 +2933,7 @@
                     products.push(newProduct);
                 }
                 
-                // Save to localStorage
-                localStorage.setItem('swiecowe-love-products', JSON.stringify(products));
+                // Don't save to localStorage - everything should be in JSON files
                 
                 // Refresh UI
                 await renderProducts();
@@ -2550,15 +2952,22 @@
                 const nameInput = document.getElementById('product-name');
                 const descriptionInput = document.getElementById('product-description');
                 const imageInput = document.getElementById('product-image');
+                const imageManualInput = document.getElementById('product-image-manual');
+                const imageUploadInput = document.getElementById('product-image-upload');
                 const editIdInput = document.getElementById('edit-product-id');
                 
                 if (nameInput) nameInput.value = '';
                 if (descriptionInput) descriptionInput.value = '';
                 if (imageInput) imageInput.value = '';
+                if (imageManualInput) imageManualInput.value = '';
+                if (imageUploadInput) imageUploadInput.value = '';
                 if (editIdInput) editIdInput.value = '';
                 
                 const preview = document.getElementById('product-image-preview');
                 if (preview) preview.classList.add('hidden');
+                
+                const previewContainer = document.getElementById('product-image-preview-container');
+                if (previewContainer) previewContainer.classList.add('hidden');
             } catch (error) {
                 console.error('Error clearing product form:', error);
             }
@@ -2637,6 +3046,7 @@
                     document.getElementById('product-name').value = product.name;
                     document.getElementById('product-description').value = product.description;
                     document.getElementById('product-image').value = product.image;
+                    document.getElementById('product-image-manual').value = product.image;
                     
                     // Show preview
                     const preview = document.getElementById('product-image-preview');
@@ -2668,8 +3078,7 @@
                     // Filter out the product to delete
                     products = products.filter(p => p.id !== id);
                     
-                    // Save to localStorage
-                    localStorage.setItem('swiecowe-love-products', JSON.stringify(products));
+                    // Don't save to localStorage - everything should be in JSON files
                     
                     // Refresh UI
                     await renderProducts();
@@ -2701,7 +3110,7 @@
         async function initializePage() {
             await loadSiteData();
             await renderProducts();
-            renderBlogPosts();
+            await renderBlogPosts();
             renderGallery();
             renderHero();
             renderAbout();
@@ -2709,6 +3118,33 @@
             renderProductsSection();
             renderSlider();
         }
+        
+        // Call initializePage when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', async function() {
+            await initializePage();
+            initScrollAnimations();
+            initMobileMenu();
+            // Scan for available images
+            await scanAvailableImages();
+            
+            // Render admin panel lists
+            await renderAdminProductsList();
+            renderAdminGalleryImagesList();
+            renderAdminSliderImagesList();
+            
+            // Periodically rescan for new images (every 30 seconds)
+            setInterval(() => {
+                scanAvailableImages();
+            }, 30000);
+        });
+        
+        // Additional initialization for mobile devices
+        window.addEventListener('load', async function() {
+            // Double-check that data is loaded properly
+            await initializePage();
+            // Rescan images on window load as well
+            await scanAvailableImages();
+        });
         
         // Scroll Animation Functions
         function isInViewport(element) {
@@ -2743,11 +3179,124 @@
         }
         
         // Call initScrollAnimations when page is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            initScrollAnimations();
+        function initMobileMenu() {
+            // Mobile menu functionality
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            }
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        toggleMobileMenu();
+                    }
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                
+                if (!mobileMenu.classList.contains('hidden') && 
+                    !mobileMenu.contains(event.target) && 
+                    !mobileMenuButton.contains(event.target)) {
+                    toggleMobileMenu();
+                }
+            });
+        }
+        
+
+        
+        // Fallback in case DOMContentLoaded doesn't fire
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        } else {
+            // DOM is already loaded
+            initMobileMenu();
+        }
+        
+        // Direct fallback - try to attach event listener immediately
+        setTimeout(function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            if (mobileMenuButton && !mobileMenuButton.hasAttribute('data-initialized')) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenuButton.setAttribute('data-initialized', 'true');
+            }
+        }, 100);
+        
+        // Window load event fallback
+        window.addEventListener('load', function() {
+            initMobileMenu();
         });
         
-        initializePage();
+        // Refresh all content function
+        async function refreshAllContent() {
+            // Reload site data and products from JSON files
+            await loadSiteData();
+            await loadProducts();
+            
+            // Refresh all UI components
+            renderHero();
+            renderAbout();
+            renderGallery();
+            renderGalleryTitle();
+            renderProductsSection();
+            await renderProducts();
+            renderSlider();
+            
+            // Rescan for available images
+            await scanAvailableImages();
+            
+            alert('✅ Cała strona została odświeżona! Wszystkie zmiany z plików JSON są teraz widoczne.');
+        }
+        
+        // Refresh image lists function
+        function refreshImageLists() {
+            // Rescan for available images and repopulate all image dropdowns
+            scanAvailableImages().then(() => {
+                alert('✅ Listy zdjęć zostały odświeżone! Teraz możesz wybrać więcej zdjęć z listy.');
+            }).catch(() => {
+                alert('✅ Listy zdjęć zostały odświeżone! Teraz możesz wybrać więcej zdjęć z listy.');
+            });
+        }
+        
+        /**
+         * Mechanizm Podglądu Zdjęcia
+         * Wywoływana po wybraniu pliku przez użytkownika (input type="file").
+         * Odczytuje plik za pomocą obiektu FileReader i ustawia URL dla elementu <img> podglądu.
+         * @param {Event} event Zdarzenie 'change' z input type="file".
+         * @param {string} previewImgId ID elementu <img>, w którym ma być wyświetlony podgląd (np. 'about-image-preview-img').
+         * @param {string} previewContainerId ID kontenera podglądu (np. 'about-image-preview-container'), aby go pokazać.
+         */
+        function previewImage(event, previewImgId, previewContainerId) {
+            const input = event.target;
+            const previewImg = document.getElementById(previewImgId);
+            const previewContainer = document.getElementById(previewContainerId);
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    previewImg.src = e.target.result; // Ustawienie źródła obrazu na dane pliku
+                    previewContainer.classList.remove('hidden'); // Pokazanie kontenera podglądu
+                }
+
+                reader.readAsDataURL(input.files[0]); // Odczytanie pliku jako Data URL
+            } else {
+                previewImg.src = ""; // Wyczyszczenie źródła
+                previewContainer.classList.add('hidden'); // Ukrycie kontenera
+            }
+        }
+        
+
     </script>
 </body>
 </html>
+<!-- Page fully loaded -->
+</html>
+<!-- Page fully loaded --ac>
